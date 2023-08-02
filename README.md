@@ -1,5 +1,5 @@
 # income-expense-tracker
-Asministrador simple de ingresos y egresos
+Administrador simple de ingresos y egresos
 
 ## Instrucciones
 
