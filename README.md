@@ -36,8 +36,12 @@ El idioma a mostrar se ajusta de acuerdo a la configuración del sistema.
 
 ## Herramientas
 Laravel versión 10
+
 PHP versión 8.1
+
 Base de datos MySql 8.0.33
+
 Bootstrap 5
+
 
 Se utiliza api para el uso del front.
