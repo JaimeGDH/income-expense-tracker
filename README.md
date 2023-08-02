@@ -3,18 +3,19 @@ Administrador simple de ingresos y egresos
 
 ## Instrucciones
 
-1.- Ejecutar 
+Ejecutar:
 ```
 npm run dev
 php artisan serve
 php artisan migrate
 ```
 
-Si ya está creada la base de datos utilizar
+Si ya está creada la base de datos utilizar:
 ```
 php artisan migrate:refresh
 ```
 
+Las migraciones vienen con información mínima para su uso (categorías y tipo de transacción)
 
 ## Modelo de datos propuesto
 ![image](https://github.com/JaimeGDH/income-expense-tracker/assets/13523127/ee345252-b224-44f9-aad4-7a1e9aca79f8)
