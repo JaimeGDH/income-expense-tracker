@@ -100,18 +100,24 @@
 
                 function submitForm() {
                     const form = document.getElementById('addTransactionForm');
-                    const formData = new FormData(form);
-                    fetch('/api/transactions', {
-                        method: 'POST',
-                        body: formData
-                    })
-                    .then(response => response.json())
-                    .then(transaction => {
-                        // Recargar la tabla de ingresos para mostrar el nuevo ingreso
-                        fetchTransactionsByTransactionType('{{ $transaction_type_id }}');
-                    })
-                    .catch(error => console.error('Error al ingresar el ingreso:', error));
-                    hideModal();
+                    if (form.checkValidity()) {
+                        // Si el formulario es válido, envía el formulario y cierra el modal
+                        const formData = new FormData(form);
+                        fetch('/api/transactions', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(transaction => {
+                            // Recargar la tabla de ingresos para mostrar el nuevo ingreso
+                            fetchTransactionsByTransactionType('{{ $transaction_type_id }}');
+                        })
+                        .catch(error => console.error('Error al ingresar el ingreso:', error));
+                        hideModal();
+                    } else {
+                        // Si el formulario no es válido, muestra los mensajes de validación
+                        form.reportValidity();
+                    }
                 }
 
                 function hideModal() {
@@ -129,8 +135,11 @@
                 }
 
                 function showTableData(transactions) {
-                    transactions.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    // Vaciar el contenido actual de la tabla
                     const tableBody = document.getElementById('transactions-table').getElementsByTagName('tbody')[0];
+                    tableBody.innerHTML = '';
+
+                    transactions.sort((a, b) => new Date(b.date) - new Date(a.date));
 
                     transactions.forEach(transaction => {
                         const row = tableBody.insertRow();
