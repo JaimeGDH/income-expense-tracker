@@ -39,9 +39,7 @@ Laravel versión 10
 
 PHP versión 8.1
 
-Base de datos MySql 8.0.33
+Base de datos MySql versión 8.0.33
 
-Bootstrap 5
+Bootstrap versiónbo 5
 
-
-Se utiliza api para el uso del front.
